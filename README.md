@@ -1,4 +1,4 @@
-# HR_Analytics_Project2
+# HR_Analytics
 
 🚀 Project Overview
 This project tackles the HR challenges at ATLIQ Hardware by analyzing employee attendance patterns, work-from-home (WFH) preferences, sick leave frequencies, and other key metrics. Using Power Query and DAX formulas, we developed an insightful dashboard to support data-driven workforce management decisions.
