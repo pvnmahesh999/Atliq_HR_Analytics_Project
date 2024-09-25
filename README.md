@@ -1,61 +1,77 @@
-# HR_Analytics
+Project: HR Analytics for Employee Presence Insights - AtliQ Hardware
+Table of Contents:
+Problem Statement
+Key Challenges and Solutions
+Data Transformation using Power Query
+Metrics Creation using DAX
+Key Insights
+Tools, Software, and Techniques
+References
+Problem Statement:
+The HR department at AtliQ Hardware faced significant challenges in monitoring and managing employee attendance. Specifically, they needed a clear picture of employee preferences for working from home (WFH) versus the office, along with insights into the reasons behind these choices. Moreover, tracking sick leaves and understanding how often employees take leave were essential to improving workforce management and planning.
 
-🚀 Project Overview
-This project tackles the HR challenges at ATLIQ Hardware by analyzing employee attendance patterns, work-from-home (WFH) preferences, sick leave frequencies, and other key metrics. Using Power Query and DAX formulas, we developed an insightful dashboard to support data-driven workforce management decisions.
+The problem was exacerbated by the fact that data was scattered across multiple Excel sheets, each representing different months and containing daily attendance data. To enable data-driven decision-making, the HR team required a centralized solution to gather, transform, and analyze this data efficiently.
 
-🎯 Problem Statement
-The HR team at ATLIQ Hardware faced difficulty in:
+Key Challenges and Solutions:
+1. Data Spread Across Multiple Excel Sheets:
+Challenge: The data was fragmented, with each month stored in separate Excel workbooks. Every workbook used daily columns, which made consolidation difficult.
+Solution: Using Power Query, I combined all the workbooks into a single unified dataset, ensuring consistent formatting across months.
+2. Reformatting Data for Analysis:
+Challenge: Each workbook contained individual columns for each date, which hindered proper time-series analysis.
+Solution: I used advanced transformation techniques in Power Query to consolidate multiple date columns into one unified date column, allowing seamless analysis over time.
+3. Advanced Data Transformation:
+Challenge: The HR team needed dynamic, actionable insights from the data.
+Solution: I utilized techniques such as pivoting data, managing parameters for multiple datasets, and invoking custom functions to automate and standardize the cleaning process.
+Data Transformation using Power Query:
+The raw data from HR consisted of monthly attendance logs, with each workbook containing columns for various attendance statuses such as "Present," "Work From Home," "Sick Leave," and "Other Leave."
 
-Tracking employee preferences between WFH and office attendance.
-Understanding reasons behind these choices.
-Monitoring the frequency of sick leave and overall leave days.
-Providing insights into WFH and sick leave percentages to better manage employee presence.
+Key Steps:
+Combining Multiple Excel Sheets:
 
-💡 Solution Approach
-The provided data was spread across multiple Excel sheets—one for each month, with daily columns indicating whether an employee was working from home, in the office, on leave, or sick. To transform this scattered data into actionable insights:
+Using Power Query's Append Queries feature, I merged multiple workbooks into one comprehensive dataset.
+Consolidating Date Columns:
 
-Data Integration:
+I transformed the daily columns into a single Date column using Unpivot Columns, creating a normalized structure that allowed further time-based analysis.
+Handling Data Inconsistencies:
 
-Merged multiple Excel sheets into a single file using Power Query.
-Consolidated daily data into a unified Date column for all months, ensuring a streamlined structure.
+I ensured consistent formatting across datasets, cleaning errors and removing duplicates.
+Automating Data Refresh:
 
-Data Transformation:
+Built a dynamic refresh mechanism in Power Query that allows easy updates as new monthly data is added, ensuring the system remains scalable.
+Metrics Creation using DAX:
+Once the data was cleaned and consolidated, I built custom metrics using DAX (Data Analysis Expressions) to generate insights relevant to the HR team.
 
-Used advanced transformations like pivoting data, creating parameters, and invoking functions across multiple datasets to ensure consistency and accuracy.
-Reformatted the data to track employee attendance and leave trends, removing inconsistencies and redundancies.
+Key Metrics:
+Employee Attendance Trend: Tracks daily and monthly presence trends across the workforce.
+Sick Leave Percentage: Measures the proportion of employees on sick leave for any given period.
+Work From Home (WFH) Analysis: Calculates WFH patterns and highlights preferences over time.
+Leave Analysis: Insights into the frequency and reasons for leave, broken down by department or team.
+Example DAX formulas:
 
-Metrics Creation:
+Sick Leave %:
 
-Utilized DAX formulas to create metrics for tracking employee attendance patterns:
-Employee Presence Trends (In-office vs. WFH).
-Sick Leave Percentages.
-Work-from-Home Patterns.
+DAX
+Copy code
+Sick Leave % = DIVIDE(COUNTROWS(FILTER('Attendance Data', 'Attendance Data'[Status] = "Sick Leave")), COUNTROWS('Attendance Data'))
 
-These metrics provide HR with critical insights to optimize workforce management.
+Work From Home %:
 
-🛠 Technologies & Tools Used
-Power Query: Data cleaning, merging, and transformation.
-DAX (Data Analysis Expressions): Metric creation and calculation.
-Power BI: Dashboard design and data visualization.
+DAX
+Copy code
+WFH % = DIVIDE(COUNTROWS(FILTER('Attendance Data', 'Attendance Data'[Status] = "Work From Home")), COUNTROWS('Attendance Data'))
 
-📊 Key Insights
-Consolidated multiple date columns into a single date structure to streamline analysis.
-Utilized pivot tables and other Power Query functionalities for effective data transformation.
-Identified trends in employee behavior, enabling HR to make informed decisions on workforce management.
+Key Insights:
+The final dashboard provided actionable insights, including:
 
-📝 Learnings and Takeaways
-Data Consistency: Always ensure a single date column for easier time-series analysis.
-Advanced Power Query Functions: Mastery of pivoting, parameter management, and function invocation helped handle large datasets efficiently.
-Data Validation: Regularly verify data formats after transformations to avoid discrepancies during analysis.
-
-
-🚀 How to Use This Project
-Download the data files from the data/ directory.
-Open the Power BI file in the dashboard/ directory to explore the dashboard.
-Review the Power Query scripts in the scripts/ folder to understand the data cleaning and transformation process.
-Feel free to modify the DAX formulas to create additional insights as needed.
-
-🔗 Links
-
-Full project documentation: GitHub Repository
-
+Employee Attendance Heatmap: Visualized trends in employee presence across departments and months.
+WFH Trends: Highlighted a shift toward remote work preferences, which helped HR make decisions about flexible work arrangements.
+Sick Leave Patterns: Detected spikes in sick leaves, providing HR with data to potentially address wellness programs or adjust policies.
+Leave Frequency: Identified departments with higher leave rates, helping HR focus on engagement strategies.
+Tools, Software, and Techniques:
+Microsoft Excel: Source data stored across multiple Excel workbooks.
+Power Query: Used for data cleaning, transformation, and combining multiple sheets into a single dataset.
+Power BI: Visualization and dashboard creation using DAX to develop key metrics.
+DAX (Data Analysis Expressions): Used for creating custom metrics and calculations.
+References:
+Power Query Documentation: https://learn.microsoft.com/en-us/power-query/
+DAX Guide: https://dax.guide/
