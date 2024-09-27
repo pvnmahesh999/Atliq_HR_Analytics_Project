@@ -101,10 +101,14 @@ Once the data was cleaned and consolidated, I built custom metrics using DAX (Da
 ## Key Insights:
 The final dashboard provided actionable insights, including:
 
-## Employee Attendance Heatmap: Visualized trends in employee presence across departments and months.
+- Employee Attendance Heatmap: Visualized trends in employee presence across departments and months.
 - WFH Trends: Highlighted a shift toward remote work preferences, which helped HR make decisions about flexible work arrangements.
 - Sick Leave Patterns: Detected spikes in sick leaves, providing HR with data to potentially address wellness programs or adjust policies.
 - Leave Frequency: Identified departments with higher leave rates, helping HR focus on engagement strategies.
+
+| HR Employee Insights |
+| ----------- |
+![My Image](HR_Analytics_S.png)
   
 ## Tools, Software, and Techniques:
 - Microsoft Excel: Source data stored across multiple Excel workbooks.
